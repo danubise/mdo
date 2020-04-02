@@ -43,10 +43,11 @@ job('Email/CleanTrash') {
     scm {
         git(gitUrl, 'master')
     }
-    steps {
-        shell('echo Hello World!')
-        sshagent (credentials: ['sshkey']) {
-            sh 'ssh -o StrictHostKeyChecking=no -l root 195.158.9.92 uname -a'
-        }
-    }
+    groovyScriptFile("email/cleantrash.groovy")
+//    steps {
+//        shell('echo Hello World!')
+//        sshagent (credentials: ['sshkey']) {
+//            sh 'ssh -o StrictHostKeyChecking=no -l root 195.158.9.92 uname -a'
+//        }
+//    }
 }
