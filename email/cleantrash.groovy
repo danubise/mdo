@@ -23,6 +23,6 @@ def hardcoded_param_value = resolver.resolve(hardcoded_param)
 
 println "param ${hardcoded_param} value : ${hardcoded_param_value}"
 
-steps.stage("Prepare resources") {}
-steps.stage("Management action") {}
-steps.stage("Cleanup") {}
+this.stage("Prepare resources") {}
+this.stage("Management action") {}
+this.stage("Cleanup") {}
