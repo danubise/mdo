@@ -23,9 +23,11 @@ def hardcoded_param_value = resolver.resolve(hardcoded_param)
 
 println "param ${hardcoded_param} value : ${hardcoded_param_value}"
 
-println this.class.declaredFields.findAll { !it.synthetic }.collectEntries {
-    [ (it.name):this."$it.name" ]
-}
+println this.properties
+        .sort{it.key}
+        .collect{it}
+        .findAll{}
+        .join('\n')
 
 println "${build.currentBuild.displayName}"
 
