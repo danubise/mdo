@@ -28,7 +28,10 @@ job('example') {
         archiveArtifacts('job-dsl-plugin/build/libs/job-dsl.hpi')
     }
 }
-
+folder('Email') {
+    displayName('Email server pipelines')
+    description('All pipeline that need to execute on email server')
+}
 job('Email/CleanTrash'){
     scm {
         git(gitUrl, 'master')
