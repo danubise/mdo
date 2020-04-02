@@ -1,23 +1,13 @@
 def gitUrl = "https://github.com/danubise/mdo.git"
 
-job("MyProject-Build") {
-    description "Builds MyProject from master branch."
-    parameters {
-        stringParam('COMMIT', 'HEAD', 'Commit to build')
-    }
+job('test-job') {
     scm {
-        git {
-            remote {
-                url gitUrl.
-                        branch "origin/master"
-            }
-            extensions {
-                wipeOutWorkspace()
-                localBranch master
-            }
-        }
+        git(gitUrl)
+    }
+    triggers {
+        scm('*/15 * * * *')
     }
     steps {
-        shell "Look: I'm building master!"
+        println("hello world")
     }
 }
