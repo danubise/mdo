@@ -46,6 +46,11 @@ job('Email/CleanTrash') {
     steps {
         groovyScriptFile("email/cleantrash.groovy")
     }
+    steps {
+        dsl {
+            external('email/cleantrash.groovy')
+        }
+    }
 //    steps {
 //        shell('echo Hello World!')
 //        sshagent (credentials: ['sshkey']) {
