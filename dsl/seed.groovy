@@ -28,12 +28,25 @@ job('example') {
         archiveArtifacts('job-dsl-plugin/build/libs/job-dsl.hpi')
     }
 }
+
 folder('Email') {
     displayName('Email server pipelines')
     description('All pipeline that need to execute on email server')
 }
-job('Email/CleanTrash'){
+
+folder('voip') {
+    displayName('voip server pipelines')
+    description('All pipeline that need to execute on voip server')
+}
+
+job('Email/CleanTrash') {
     scm {
         git(gitUrl, 'master')
+    }
+    steps {
+        shell('echo Hello World!')
+        sshagent (credentials: ['sshkey']) {
+            sh 'ssh -o StrictHostKeyChecking=no -l root 195.158.9.92 uname -a'
+        }
     }
 }
