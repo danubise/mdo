@@ -5,7 +5,7 @@ import java.util.concurrent.CancellationException
 
 println "hello world from groovy script"
 
-shell('echo Hello World!')
+//shell('echo Hello World!')
 
 pipeline {
     agent any
