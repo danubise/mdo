@@ -1,24 +1,24 @@
 import hudson.model.*
-import hudson.AbortException
-import hudson.console.HyperlinkNote
-//import com.cloudbees.groovy.cps.NonCPS
 
-println "hello world from groovy script"
+// get current thread / Executor
+def thr = Thread.currentThread()
+// get current build
+def build = thr?.executable
 
-//shell('echo Hello World!')
-//@NonCPS
-def call(body) {
-    pipeline {
-        agent any
-        stages {
-            stage("pull-updates-to-dev") {
-                steps {
-                    sshagent(credentials: ['sshkey']) {
-                        sh 'ssh -o StrictHostKeyChecking=no -l root 195.158.9.92 uname -a'
-                    }
-                    sleep 2
-                }
-            }
-        }
-    }
+
+// get parameters
+def parameters = build?.actions.find{ it instanceof ParametersAction }?.parameters
+parameters.each {
+    println "parameter ${it.name}:"
+    println it.dump()
+    println "-" * 80
 }
+
+
+// ... or if you want the parameter by name ...
+def hardcoded_param = "FOOBAR"
+def resolver = build.buildVariableResolver
+def hardcoded_param_value = resolver.resolve(hardcoded_param)
+
+
+println "param ${hardcoded_param} value : ${hardcoded_param_value}"
