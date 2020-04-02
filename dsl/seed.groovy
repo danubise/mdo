@@ -41,10 +41,7 @@ folder('voip') {
 
 job('Email/CleanTrash') {
     scm {
-        github(gitUrl, 'master')
-    }
-    steps {
-        groovyScriptFile("email/cleantrash.groovy")
+        github('danubise/mdo', 'master')
     }
     steps {
         dsl {
