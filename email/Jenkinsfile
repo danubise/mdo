@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+    stages {
+        stage("pull-updates-to-dev"){
+            steps {
+                sshagent (credentials: ['admin']) {
+                    sh "ssh -o StrictHostKeyChecking=no e91user@3.230.126.252 'cd /home/e91user/web/FinalProject/ && sudo git checkout dev1 && sudo git pull'"
+		}
+                sleep 2
+            }
+        }
+        }
+        }
+        }
