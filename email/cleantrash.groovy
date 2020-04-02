@@ -1,10 +1,10 @@
 import hudson.model.*
-import hudson.model.build
+
 
 // get current thread / Executor
 def thr = Thread.currentThread()
 // get current build
-Build build = (Build) thr?.executable
+def build =  thr?.executable
 
 
 // get parameters
