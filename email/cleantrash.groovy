@@ -23,7 +23,7 @@ def hardcoded_param_value = resolver.resolve(hardcoded_param)
 
 println "param ${hardcoded_param} value : ${hardcoded_param_value}"
 
-println this.properties
+println build.properties
         .sort{it.key}
         .collect{it}
         .findAll{}
