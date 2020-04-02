@@ -28,7 +28,7 @@ println this.properties
         .collect{it}
         .findAll{}
         .join('\n')
-build.result = "FAILED"
+build.result = Result.SUCCESS
 //println "${build.currentBuild.displayName}"
 //
 //build.stage("Prepare resources") {}
