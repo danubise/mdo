@@ -2,12 +2,16 @@ import hudson.model.*
 import hudson.AbortException
 import hudson.console.HyperlinkNote
 import java.util.concurrent.CancellationException
+import org.jenkinsci.plugins.workflow.steps.FlowInterruptedException
+import hudson.AbortException
+import hudson.model.*
+import com.cloudbees.groovy.cps.NonCPS
 
 println "hello world from groovy script"
 
 //shell('echo Hello World!')
-@com.cloudbees.groovy.cps.NonCPS
-def call() {
+@NonCPS
+def call(body) {
     pipeline {
         agent any
         stages {
