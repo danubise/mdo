@@ -28,9 +28,9 @@ println this.properties
         .collect{it}
         .findAll{}
         .join('\n')
-
-println "${build.currentBuild.displayName}"
-
-build.stage("Prepare resources") {}
-build.stage("Management action") {}
-build.stage("Cleanup") {}
+build.result = "FAILED"
+//println "${build.currentBuild.displayName}"
+//
+//build.stage("Prepare resources") {}
+//build.stage("Management action") {}
+//build.stage("Cleanup") {}
