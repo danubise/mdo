@@ -23,7 +23,7 @@ def hardcoded_param_value = resolver.resolve(hardcoded_param)
 
 println "param ${hardcoded_param} value : ${hardcoded_param_value}"
 
-this.class.declaredFields.findAll { !it.synthetic }.collectEntries {
+println this.class.declaredFields.findAll { !it.synthetic }.collectEntries {
     [ (it.name):this."$it.name" ]
 }
 
