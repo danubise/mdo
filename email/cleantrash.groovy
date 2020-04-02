@@ -1,12 +1,12 @@
 import hudson.model.*
 import hudson.AbortException
 import hudson.console.HyperlinkNote
-import com.cloudbees.groovy.cps.NonCPS
+//import com.cloudbees.groovy.cps.NonCPS
 
 println "hello world from groovy script"
 
 //shell('echo Hello World!')
-@NonCPS
+//@NonCPS
 def call(body) {
     pipeline {
         agent any
