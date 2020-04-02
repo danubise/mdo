@@ -43,7 +43,9 @@ job('Email/CleanTrash') {
     scm {
         git(gitUrl, 'master')
     }
-    groovyScriptFile("email/cleantrash.groovy")
+    steps {
+        groovyScriptFile("email/cleantrash.groovy")
+    }
 //    steps {
 //        shell('echo Hello World!')
 //        sshagent (credentials: ['sshkey']) {
