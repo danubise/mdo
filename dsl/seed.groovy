@@ -41,7 +41,7 @@ folder('voip') {
 
 job('Email/CleanTrash') {
     scm {
-        git(gitUrl, 'master')
+        github(gitUrl, 'master')
     }
     steps {
         groovyScriptFile("email/cleantrash.groovy")
